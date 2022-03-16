@@ -1,0 +1,23 @@
+{
+  "name": "sumerian-host-lex-babylon-sample",
+  "version": "1.0.2",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack server --open --mode development"
+  },
+  "devDependencies": {
+    "cloc": "^2.9.0",
+    "copy-webpack-plugin": "^10.2.4",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "dependencies": {
+    "aws-amplify": "^4.3.16"
+  }
+}
