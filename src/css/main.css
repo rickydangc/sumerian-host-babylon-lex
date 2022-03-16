@@ -1,0 +1,202 @@
+/*
+© 2021 Amazon Web Services, Inc. or its affiliates. All Rights Reserved.  
+This AWS Content is provided subject to the terms of the AWS Customer Agreement available at  
+http://aws.amazon.com/agreement or other written agreement between Customer and either
+Amazon Web Services, Inc. or Amazon Web Services EMEA SARL or both.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap');
+@import 'icon-button.css';
+@import 'welcome-screen.css';
+
+html,
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-color: black;
+    font-size: 24px;
+}
+
+body {
+    background-image: url('../images/slide-background-blue.png');
+    background-position: center;
+    background-size: cover;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.textEntry {
+    width: 300px;
+    outline: 0px;
+    padding: 10px;
+    resize: both;
+}
+
+button {
+    font-size: 24px;
+    border: 1px solid transparent;
+    border-radius: 1000px;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 0 20px 10px #00000033;
+    color: #021d45;
+    background-color: #89c24b;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform ease-out 100ms;
+}
+
+button:hover {
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#renderCanvas {
+    width: 100vw;
+    height: 100vh;
+    touch-action: none;
+}
+
+#demoUi {
+    background-color: #00000055;
+    padding: 10px;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    border-radius: 5px;
+}
+
+input {
+    color: #303030;
+    background-color: rgba(0255, 255, 255, 0.78);
+    font-size: inherit;
+    padding: .4em .8em;
+    margin: 1em;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+textarea,
+select,
+input,
+button {
+    outline: none;
+}
+
+
+/* == 2D UI == */
+
+#ui2d {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* IMPORTANT: By default, allow clicks to bypass the UI layer so that they
+    can reach the underlying 3D view. */
+    pointer-events: none;
+}
+
+#ui2d .buttonBar {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 35px;
+}
+
+.iconButton {
+    /* IMPORTANT: Since the UI layer ignores pointe revents by defaul we must
+    up into pointer events for the UI elements that should be clickable. */
+    pointer-events: auto;
+}
+
+
+/* == LOADING SCREEN == */
+
+#loadScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: gray;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+    z-index: 9999; */
+}
+
+#loadScreen .logo {
+    display: block;
+    max-width: 50vw;
+}
+
+#loader {
+    border: 16px solid #ffffff22;
+    border-radius: 50%;
+    border-top: 16px solid #FFFFFFaa;
+    width: 80px;
+    height: 80px;
+    max-width: 17vw;
+    max-height: 17vw;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+/* == VIRTUAL CONTENT SCREEN == */
+
+#virtualScreenContent {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    border: none;
+    visibility: hidden;
+}
+
+
+/* == CSS Animations == */
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
