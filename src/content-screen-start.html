@@ -1,0 +1,38 @@
+<!--
+© 2021 Amazon Web Services, Inc. or its affiliates. All Rights Reserved.  
+This AWS Content is provided subject to the terms of the AWS Customer Agreement available at  
+http://aws.amazon.com/agreement or other written agreement between Customer and either
+Amazon Web Services, Inc. or Amazon Web Services EMEA SARL or both.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display</title>
+  <link rel="stylesheet" href="css/content-screen.css">
+  <style>
+    .logo {
+      width: 70vw;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.9.0/html-to-image.js"></script>
+  <script type="module">
+    import { renderPageAsImage } from './scripts/app/iframe-capture.js';
+
+    // Once the page has loaded, send an image of this page to the parent 
+    // window so that it can be used as a texture on the virtual monitor screen 
+    // in the scene.
+    window.addEventListener('load', renderPageAsImage);
+  </script>
+</head>
+
+<body>
+  <div id="content" class="screen">
+    <img class="logo" src="images/company_logo_white.png">
+  </div>
+</body>
+
+</html>

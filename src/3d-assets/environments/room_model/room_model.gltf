@@ -1,0 +1,736 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "extensionsUsed" : [
+        "KHR_lights_punctual"
+    ],
+    "extensionsRequired" : [
+        "KHR_lights_punctual"
+    ],
+    "extensions" : {
+        "KHR_lights_punctual" : {
+            "lights" : [
+                {
+                    "color" : [
+                        1,
+                        1,
+                        1
+                    ],
+                    "intensity" : 6,
+                    "spot" : {
+                        "innerConeAngle" : 0.19845444319658512,
+                        "outerConeAngle" : 0.4256109893321991
+                    },
+                    "type" : "spot",
+                    "range" : 2,
+                    "name" : "Spot.003"
+                },
+                {
+                    "color" : [
+                        1,
+                        1,
+                        1
+                    ],
+                    "intensity" : 20,
+                    "spot" : {
+                        "innerConeAngle" : 0.19845444319658512,
+                        "outerConeAngle" : 0.4256109893321991
+                    },
+                    "type" : "spot",
+                    "name" : "Spot.001"
+                },
+                {
+                    "color" : [
+                        1,
+                        0.4295656085014343,
+                        0.11062673479318619
+                    ],
+                    "intensity" : 15,
+                    "spot" : {
+                        "innerConeAngle" : 0.28165653672584945,
+                        "outerConeAngle" : 0.3339812159538269
+                    },
+                    "type" : "spot",
+                    "range" : 4,
+                    "name" : "Spot.002"
+                },
+                {
+                    "color" : [
+                        1,
+                        1,
+                        1
+                    ],
+                    "intensity" : 65,
+                    "spot" : {
+                        "innerConeAngle" : 0,
+                        "outerConeAngle" : 0.7723081707954407
+                    },
+                    "type" : "spot",
+                    "name" : "Spot"
+                }
+            ]
+        }
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                14
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "DisplayScreen",
+            "translation" : [
+                0,
+                0,
+                0.01391911506652832
+            ]
+        },
+        {
+            "children" : [
+                0
+            ],
+            "mesh" : 1,
+            "name" : "DisplayFrame",
+            "translation" : [
+                -1.6948041915893555,
+                0.07308781147003174,
+                0.19444286823272705
+            ]
+        },
+        {
+            "extensions" : {
+                "KHR_lights_punctual" : {
+                    "light" : 0
+                }
+            },
+            "name" : "FillLight_Orientation",
+            "rotation" : [
+                -0.7071067690849304,
+                0,
+                0,
+                0.7071067690849304
+            ]
+        },
+        {
+            "children" : [
+                2
+            ],
+            "name" : "FillLight",
+            "rotation" : [
+                0.4161798357963562,
+                0.2392626851797104,
+                0.729236900806427,
+                0.4876077175140381
+            ],
+            "translation" : [
+                -2.907397747039795,
+                -0.582909107208252,
+                2.4566330909729004
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "Floor",
+            "translation" : [
+                -0.8704997301101685,
+                -1.5312650203704834,
+                4.541460037231445
+            ]
+        },
+        {
+            "extensions" : {
+                "KHR_lights_punctual" : {
+                    "light" : 1
+                }
+            },
+            "name" : "KeyLight_Orientation",
+            "rotation" : [
+                -0.7071067690849304,
+                0,
+                0,
+                0.7071067690849304
+            ]
+        },
+        {
+            "children" : [
+                5
+            ],
+            "name" : "KeyLight",
+            "rotation" : [
+                0.048300664871931076,
+                0.05207587778568268,
+                0.6783137321472168,
+                0.7313314080238342
+            ],
+            "translation" : [
+                -4.115246772766113,
+                0.3946787118911743,
+                1.5971853733062744
+            ]
+        },
+        {
+            "extensions" : {
+                "KHR_lights_punctual" : {
+                    "light" : 2
+                }
+            },
+            "name" : "RimLight_Orientation",
+            "rotation" : [
+                -0.7071067690849304,
+                0,
+                0,
+                0.7071067690849304
+            ]
+        },
+        {
+            "children" : [
+                7
+            ],
+            "name" : "RimLight",
+            "rotation" : [
+                0.00989358127117157,
+                -0.07911878824234009,
+                -0.44396600127220154,
+                0.892488956451416
+            ],
+            "translation" : [
+                -0.6463872194290161,
+                0.812143087387085,
+                1.3347177505493164
+            ]
+        },
+        {
+            "name" : "ScreenPOI",
+            "rotation" : [
+                0,
+                -0.5263816118240356,
+                0,
+                0.8502484560012817
+            ],
+            "scale" : [
+                0.10000000149011612,
+                0.10000000149011612,
+                0.10000000149011612
+            ],
+            "translation" : [
+                -3.018265724182129,
+                0.0026688575744628906,
+                0.9243623614311218
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "Wall",
+            "translation" : [
+                -0.7885710000991821,
+                -1.5312650203704834,
+                0.1485835313796997
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "Wall.001",
+            "rotation" : [
+                0,
+                -0.7071068286895752,
+                0,
+                0.7071068286895752
+            ],
+            "translation" : [
+                2.6767807006835938,
+                -1.5312650203704834,
+                3.4419302940368652
+            ]
+        },
+        {
+            "extensions" : {
+                "KHR_lights_punctual" : {
+                    "light" : 3
+                }
+            },
+            "name" : "WallLight_Orientation",
+            "rotation" : [
+                -0.7071067690849304,
+                0,
+                0,
+                0.7071067690849304
+            ]
+        },
+        {
+            "children" : [
+                12
+            ],
+            "name" : "WallLight",
+            "rotation" : [
+                0.4042896330356598,
+                0,
+                0,
+                0.9146310091018677
+            ],
+            "translation" : [
+                -1.1498005390167236,
+                3.45157790184021,
+                2.6437454223632812
+            ]
+        },
+        {
+            "children" : [
+                1,
+                3,
+                4,
+                6,
+                8,
+                9,
+                10,
+                11,
+                13
+            ],
+            "name" : "RoomContainer",
+            "rotation" : [
+                0,
+                0.5263816118240356,
+                0,
+                0.8502484560012817
+            ],
+            "translation" : [
+                -0.35618892312049866,
+                1.5312650203704834,
+                -2.3990001678466797
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "DisplayScreenMat",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.05637655034661293,
+                    0.05637655034661293,
+                    0.05637655034661293,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.11586639285087585
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "DisplayFrameMat",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.021170973777770996,
+                    0.021170973777770996,
+                    0.021170973777770996,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.2453027069568634
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "FloorMat",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.042025256901979446,
+                    0.042025256901979446,
+                    0.042025256901979446,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.9634655714035034
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "WallMat",
+            "normalTexture" : {
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Plane.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Plane.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        },
+        {
+            "name" : "Plane",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 3,
+                    "material" : 2
+                }
+            ]
+        },
+        {
+            "name" : "Plane.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 11,
+                        "NORMAL" : 12,
+                        "TEXCOORD_0" : 13
+                    },
+                    "indices" : 14,
+                    "material" : 3
+                }
+            ]
+        },
+        {
+            "name" : "Plane.004",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 15,
+                        "NORMAL" : 16,
+                        "TEXCOORD_0" : 17
+                    },
+                    "indices" : 14,
+                    "material" : 3
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Concrete007_1K_NormalDX",
+            "uri" : "textures/Concrete007_1K_NormalDX.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Concrete007_1K_Color",
+            "uri" : "textures/Concrete007_1K_Color.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Concrete007_1K_Roughness",
+            "uri" : "textures/Concrete007_1K_Roughness.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 4,
+            "max" : [
+                0.6913816332817078,
+                0.388901948928833,
+                0
+            ],
+            "min" : [
+                -0.6913816928863525,
+                -0.3889021873474121,
+                0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 6,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 216,
+            "max" : [
+                0.7429584264755249,
+                0.4354928731918335,
+                0.01355278491973877
+            ],
+            "min" : [
+                -0.7429584264755249,
+                -0.4354931116104126,
+                -0.01355278491973877
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 216,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 216,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 324,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 4,
+            "max" : [
+                5,
+                0,
+                5
+            ],
+            "min" : [
+                -5,
+                0,
+                -5
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 4,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 24,
+            "max" : [
+                3.5,
+                3.5,
+                7.649492772543454e-08
+            ],
+            "min" : [
+                -3.5,
+                0,
+                -0.2000000774860382
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 13,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 14,
+            "componentType" : 5123,
+            "count" : 36,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 15,
+            "componentType" : 5126,
+            "count" : 24,
+            "max" : [
+                3.5,
+                3.5,
+                7.649492772543454e-08
+            ],
+            "min" : [
+                -3.5,
+                0,
+                -0.2000000774860382
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 16,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 17,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC2"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 48,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 48,
+            "byteOffset" : 48
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 32,
+            "byteOffset" : 96
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12,
+            "byteOffset" : 128
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2592,
+            "byteOffset" : 140
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2592,
+            "byteOffset" : 2732
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1728,
+            "byteOffset" : 5324
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 648,
+            "byteOffset" : 7052
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 48,
+            "byteOffset" : 7700
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 48,
+            "byteOffset" : 7748
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 32,
+            "byteOffset" : 7796
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 7828
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 8116
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 8404
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 8596
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 8668
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 8956
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 9244
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 9436,
+            "uri" : "room_model.bin"
+        }
+    ]
+}

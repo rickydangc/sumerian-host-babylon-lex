@@ -1,0 +1,82 @@
+<!--
+© 2021 Amazon Web Services, Inc. or its affiliates. All Rights Reserved.  
+This AWS Content is provided subject to the terms of the AWS Customer Agreement available at  
+http://aws.amazon.com/agreement or other written agreement between Customer and either
+Amazon Web Services, Inc. or Amazon Web Services EMEA SARL or both.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome</title>
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Babylon.js dependencies -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+
+    <!-- Host build file -->
+    <script
+      type="text/javascript"
+      src="https://sdk.amazonaws.com/js/aws-sdk-2.645.0.min.js"
+    ></script>
+
+    <!-- Main application logic -->
+    <script type="module" src="main.js"></script>
+  </head>
+
+  <body>
+    <!--Loading screen-->
+    <div id="loadScreen" class="screen">
+      <img class="logo" src="images/company_logo_white.png" />
+      <div id="loader"></div>
+    </div>
+
+    <!-- Welcome screen -->
+    <div id="welcomeScreen" class="screen hidden">
+      <div class="welcomeMessage">
+        <h1 class="title">Welcome</h1>
+        <button id="beginButton">Begin</button>
+      </div>
+    </div>
+
+    <!-- Main screen -->
+    <div id="mainScreen" class="screen hidden">
+      <!-- Canvas used to render 3D content -->
+      <canvas id="renderCanvas"></canvas>
+
+      <div id="ui2d">
+        <div class="buttonBar">
+          <div id="talkButton" class="iconButton">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="buttonFace">
+              <img class="icon" draggable="false" src="images/mic_icon.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Text to speech controls-->
+    <!-- <div id="demoUi" class="hidden">
+    <div>
+      <textarea autofocus size="23" type="text" class="textEntry Grace">
+    <speak>
+      <amazon:domain name="conversational">
+        Hello, my name is Grace. I used to only be a host inside Amazon Sumerian, but
+        now you can use me in other Javascript runtime environments like three js
+        and Babylon js. Right now,
+        <mark name='{"feature":"PointOfInterestFeature","method":"setTargetByName","args":["char:gaze"]}' />
+        my friend and I here are in Babylon js.
+      </amazon:domain>
+    </speak>
+            </textarea>
+      <div>
+        <button id="playButton">Play</button>
+        <button id="stopButton">Stop</button>
+      </div>
+    </div> -->
+  </body>
+</html>
