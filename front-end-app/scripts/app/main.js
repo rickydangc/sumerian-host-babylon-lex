@@ -108,6 +108,7 @@ async function loadCharacter() {
   // Tell the host to always look at the camera.
   const camera = scene.cameras[0];
   host.PointOfInterestFeature.setTarget(camera);
+  host.owner.position = new BABYLON.Vector3(0.4, 0, 0);
 
   // Enable host shadows.
   shadowGenerator.addShadowCaster(host.owner, true);

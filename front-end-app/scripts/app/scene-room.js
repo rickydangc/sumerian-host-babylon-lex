@@ -37,8 +37,8 @@ async function create(engine) {
 }
 
 function addCamera(scene) {
-  const position = new BABYLON.Vector3(0.1, 1.5, 1);
-  const aimTarget = new BABYLON.Vector3(-0.3, 1.52, 0);
+  const position = new BABYLON.Vector3(-0.2, 1.5, 1.5);
+  const aimTarget = new BABYLON.Vector3(-0.2, 1.5, 0);
   const camera = new BABYLON.UniversalCamera('flyCam', position, scene);
   camera.speed = 0.02;
   camera.minZ = 0.05;
