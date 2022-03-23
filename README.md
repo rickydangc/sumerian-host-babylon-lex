@@ -31,9 +31,51 @@ Fix any installation audit issues:
 npm audit fix
 ```
 
-### AWS Infrastructure Setup
+### AWS Setup
 
-In order for the demo to be runnable you will need to set up a few things in your AWS account. You'll setup the actual **Amazon Lex chatbot** that powers this demo. You will then deploy the app using **AWS Amplify**.
+In order for the demo to be runnable you will need to set up a few things in your AWS account. The steps below will guide you through creating a **Cognito Identity Pool** that allows this application to talk to two AWS services—Amazon Polly and Amazon Lex. You'll also create the actual **Amazon Lex chatbot** that powers this demo.
+
+#### App Credentials Setup
+
+In order to allow our front-end application to make API calls to Amazon Lex and Amazon Polly we must create authorization credentials that it can use.
+
+In the AWS console, navigate to the Cognito service.
+
+Confirm that the Cognito console is set to your desired AWS region. (Example, "us-east-1")
+
+Click **"Manage Identity Pools"**.
+
+If you've never created an identity pool before you will be taken directly to the "Getting started wizard". If instead you see a dashboard view with a "Create new identity pool" button, click that button to be taken to the "Getting started wizard".
+
+Give the identity pool a meaningful name specific to your application. We'll use the name *"Demo_SumHostSeating"* for these instructions.
+
+Tick the **"Enable access to unauthenticated identites"** checkbox to *ON*. This will allow anonymous web visitors to use our application.
+
+Click the **"Create Pool"** button at the bottom of the page.
+
+You will be presented with a page informing you that some IAM roles will be created on your behalf. If you expand the "View Details" section you'll see that two IAM roles will be created for you—one representing logged-in (authenticated) users of your app and one representing anonymous (unauthenticated) users. Click the **"Allow"** button at the bottom of the page.
+
+You will be presented with a "Sample code" page. While you don't need most of the sample code presented, you ***must*** ✏️ copy the Identity pool ID value shown in the code, and save it for use later in these instructions. The value will look similar to `"us-east-1:1ab23f45-6789-8cde-7654-f1g0549h0cce"`
+
+Use the AWS console search bar to navigate to the IAM service.
+
+Click the **"Roles"** tab in the left nav.
+
+Use the IAM Roles search field to search for the name you gave your Cognito Identity Pool (ex. *"Demo_SumHostSeating"*). You should get two results—one with an "Unauth_Role" suffix and one with an "Auth_Role" suffix.
+
+Click the role name of the "Unauth_Role" entry to access that IAM role.
+
+Select **Add permissions > Attach policies**.
+
+In the search box, search for *"AmazonLexRunBotsOnly"*. Tick the checkbox next to that policy to select it. This policy will allow our application to access Amazon Lex.
+
+Click the **"Clear filters"** button, and use the search box again and search for *"AmazonPollyReadOnlyAccess"*. Tick the checkbox next to that policy to select it. This policy will allow our application to access Amazon Polly.
+
+Now that you've selected the two permissions policies required by our application, click the **"Attach policies"** button.
+
+In the resulting screen, confirm that both polices have been added to the list of permissions policies for the role.
+
+Your app credentials setup is now complete! 🎉
 
 #### Lex Bot Setup
 
@@ -65,177 +107,46 @@ Click the **"Publish"** button to complete the publishing process.
 
 Once publishing is complete, ✏️ write down the "Bot Name" and "Alias" values so you can easily refer to them later. You may dismiss the notification window after doing this.
 
-🎉 Your Lex bot setup is now complete! 
+Your Lex bot setup is now complete! 🎉
 
-#### Initialize the project as an Amplify app
+### Front-end Application Setup
 
-> ⚠️ **Important:** Before you begin, be sure your Amplify CLI installation is updated to at least 7.6.24 by running `npm i -g @aws-amplify/cli`.
+Before you can run the demo app you will need to make a few small edits to the source code.
 
-1: Open a terminal and `cd` to the root of this project.
+Using your favorite code editor, open the "<repository-root>/front-end-app/scripts/app/main.js" file.
 
-2: Start the process of configuring the project as an Amplify app by running:
+On line 24, replace the `cognitoIdentityPoolId` value with the Cognito Identity Pool ID you created earlier. Save your changes.
 
-```
-amplify init
-```
+Open the "<repository-root>/front-end-app/scripts/app/lex-bot.js" file.
 
-3: Use the following responses for the next few prompts:
+On lines 10 and 11 update the `botName` and `botAlias` values to match the bot name and bot alias you created earlier. Save your changes.
 
-| prompt                                               | response                                                     |
-| ---------------------------------------------------- | ------------------------------------------------------------ |
-| Enter a name for the project                         | Enter a name or use the default                              |
-| Initialize the project with the above configuration? | "Y"                                                          |
-| Select the authentication method you want to use     | "AWS profile" (Recommended for this tutorial, but feel free to choose another method if you're knowledgeable.) |
+Your front-end application setup is now complete! 🎉 Now you're ready to [run the demo](#running-the-demo) ⤵️ or to [start active development](#project-details-for-developers) ⤵️.
 
-4: At this point you'll see one of the following two prompts:
+## Running the Demo
 
-- *Prompt A:* **"Please choose the profile you want to use"**
-  - If you see this prompt, continue to step 5.
-- *Prompt B:* **"Setup new user?"**
-  - If you see this prompt follow the steps below...
-  - Enter "Y" in response to the prompt.
-  - Follow the prompts to sign into the AWS console.
-  - Select your preferred AWS region.
-  - Enter a new user name for the IAM user that will be created (or accept the auto-generated username).
-  - A browser window will open to the IAM "Add user" page. Leave the default settings as-is and click "Next: Permissions".
-  - The proper permissions allowing Amplify administrator access are already preselected. Click "Next: Tags".
-  - Add a tag if you would like (optional), then click "Next: Review".
-  - Click "Create User" to complete the IAM user creation process.
-  - **IMPORTANT:** Download the .csv file for safe keeping.
-  - Keep the browser window open, but return to the terminal and hit enter to continue in the terminal.
-  - When prompted for the "accessKeyId" and "secretAccessKey" values in the terminal, use the values shown in the browser. (These values can als be found in the .csv file you downloaded above.)
-  - When prompted, enter a new profile name to be used locally (or accept the default of "default"). 
+### Starting the Demo
 
-5: When prompted to choose a profile for Amplify to use, select any profile that has been assigned permissions equivalent to those found in the "AdministratorAccess-Amplify" managed permissions policy in the IAM console. If you followed the "Setup new user" steps above, the user profile you created already has the appropriate permissions. If you're using a pre-existing user profile, you can confirm and/or change it's permissions in the IAM console.
-
-#### Add Amplify hosting
-
-Now that the foundational Amplify app configuration is complete, we can some required capabilites to our Amplify app, including hosting.
-
-6: Run:
+In a command terminal, navigate to the root of the downloaded repository.
 
 ```
-amplify add hosting
+cd sumerian-host-lex-babylon-sample
 ```
 
-7:  Use the following responses for the next few prompts...
-
-| prompt                              | response                                                     |
-| ----------------------------------- | ------------------------------------------------------------ |
-| Select the plugin module to execute | "Hosting with Amplify Console" (Recommended for this tutorial, but feel free to choose another method if you'd like.) |
-| Choose a type                       | "Manual deployment"                                          |
-
-#### Add Amplify auth capabilities
-
-This sample app needs to be able to call the Amazon Polly and Amazon Lex services. The following steps will enable our app to make calls to those services.
-
-8: Run:
-
-```
-amplify add auth
-```
-
-9: Use the following responses for the next few prompts...
-
-| prompt                                                       | response                                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Do you want to use the default authentication and security configuration? | "Manual configuration"                                       |
-| Select the authentication/authorization services that you want to use: | "User Sign-Up, Sign-In, connected with AWS IAM controls"     |
-| Provide a friendly name for your resource that will be used to label this category in the project | "AwsApiAccess" (or a name of your choosing)                  |
-| Enter a name for your identity pool                          | "SumerianHostSample_IdentityPool" (or a name of your choosing) |
-| Allow unauthenticated logins?                                | "Yes" - By allowing unauthenticated logins, even anonymous visitors will be able to use this app |
-| Do you want to enable 3rd party authentication providers in your identity pool? | "No"                                                         |
-| Provide a name for your user pool                            | "SumerianHostSample_UserPool" (or a name of your choosing)   |
-| How do you want users to be able to sign in?                 | Choose any value. We won't actually be prompting users to create accounts, so this option is irrelevant to our app. |
-| Do you want to add User Pool Groups?                         | "No" (This option is irrelevant to our app.)                 |
-| Do you want to add an admin queries API?                     | "No"                                                         |
-| Multifactor authentication (MFA) user login options          | "OFF" (This option is irrelevant to our app.)                |
-| Email based user registration/forgot password                | "Enabled" (This option is irrelevant to our app.)            |
-| Specify an email verification subject                        | Use the default. (This option is irrelevant to our app.)     |
-| Specify an email verification message                        | Use the default. (This option is irrelevant to our app.)     |
-| Do you want to override the default password policy for this User Pool? | "N" (This option is irrelevant to our app.)                  |
-| What attributes are required for signup?                     | Hit Enter to accept the defaults. (This option is irrelevant to our app.) |
-| Specify the app's refresh token expiration period (in days)  | Use the default.                                             |
-| Do you want to specify the user attributes this app can read and write? | "N"                                                          |
-| Do you want to enable any of the following capabilities?     | Hit Enter to skip this step.                                 |
-| Do you want to use an OAuth flow?                            | "No"                                                         |
-| Do you want to configure Lambda Triggers for Cognito?        | "N"                                                          |
-
-#### Deploy the Amplify app back-end
-
-Now that we've configured "hosting" and "auth" capabilities it's time to deploy the related back-end services. 
-
-10: Run:
-
-```
-amplify push
-```
-
-11: You will be presented with a summary of the changes about to take place along with the confirmation prompt, **"Are you sure you want to continue?"**. Respond with "Y".
-
-After a few minutes you should be presented with confirmation saying, "All resources are updated in the cloud".
-
-#### Add Amazon Polly and Amazon Lex permissions
-
-As a result of adding "auth" support to our app above, your AWS account now contains a new IAM role which will be used by our app. But right now that IAM role doesn't have permissions to access any AWS services. Let's fix that.
-
-12: In a browser, log into the AWS console and navigate to the IAM console.
-
-13: Click on the "Roles" link in the left nav.
-
-14: Search for the role named with a pattern similar to the following: `amplify-{name you gave the app}-dev-{some numbers}-unauthRole` Click on the role name, making sure the name ends with "unauthRole".
-
-15: Click the "Add permissions" button and choose "Attach policies".
-
-16: Add the following two policies to the role. (You can use the search field to search for the policies):
-
-- "AmazonPollyReadOnlyAccess"
-- "AmazonLexRunBotsOnly"
-
- 🎉 Your AWS infrastructure setup is now complete!
-
-### Test the app locally
-
-Now that we're finished with the Amplify app configuration and setup, let's test the app locally to make sure everything is working.
-
-17: Switch back to the terminal. (If you closed the terminal, open a new one and navigate to the project root.)
-
-18: Run the following:
+Use the following command which will start up a local web server and launch the application in a browser.
 
 ```
 npm start
 ```
 
-This will start a local webserver and launch a browser to display the app. You should see a loading screen for a few seconds and then a "Welcome" message and a "Begin" button should appear. If you see this then, congratulations! Everything was set up properly. 
+> ✏️ **Note:** When you are done testing, you can stop the local web server by pressing **Ctrl-C** while using the same terminal window in which you started the server.
 
-> **Note:** If the app doesn't load, open the browser JavaScript console to see if there are error messages that might give you a clue as to what might have gone wrong, then retrace your steps through the instructions above.
-
-20: Now that you've confirmed the app front-end works, you can quit the webserver by pressing Ctrl-C in the terminal.
-
-### Deploy the Amplify app front-end
-
-Once you've confirmed that the app front-end is working locally, you're ready to deploy it to the cloud. 
-
-19: Run:
-
-```
-amplify publish
-```
-
-20: After the front-end has finished deploying, the terminal will display the public URL for your app. Copy-paste that URL into a browser to view the app.
-
-🎉 Congratulations! You've successfully launched the sample app using Amplify.
-
-### Making code changes
-
-If you make changes to the app's source code, you can test those changes locally using the same `npm start` command you used above. When you're ready to deploy your changes, just run the `amplify publish` command again. It's that easy!
-
-## Demo Notes
+### Demo Notes
 
 Microphone recording is not implemented in this demo. Instead, there are some "magic" keyboard keys you can use to simulate various spoken input values. To trigger these simulated speech inputs, press and release the "push-to-talk" button on screen while holding down one of the following keys:
 
 - **1** key = *"Where is my desk"*
-- **2** key = *"ABC1234"*
+- 2 key = *"ABC1234"*
 - **3** key = *"ABE1234"*
 - **4** key = "00012357"
 - **Y** key = *"yes"*
