@@ -21,8 +21,7 @@ import { VirtualScreen } from './virtual-screen.js';
 // assigned to it:
 //   - AmazonPollyReadOnlyAccess
 //   - AmazonLexRunBotsOnly
-
-const cognitoIdentityPoolId = 'us-west-2:3eb8a906-3615-4894-8b5f-582420fe8e49';
+const cognitoIdentityPoolId = '<paste your app Cognito Identity Pool ID here>';
 
 // TODO: Edit the pollyVoice value if you would like the change the Polly voice used by
 // the character. See https://docs.aws.amazon.com/polly/latest/dg/voicelist.html
