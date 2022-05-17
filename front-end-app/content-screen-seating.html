@@ -94,14 +94,14 @@ Amazon Web Services, Inc. or Amazon Web Services EMEA SARL or both.
       const employeeId = urlParams.get('employeeId');
 
       // Display the seat number on screen.
-      document.getElementById('employeeId').innerText = employeeId.toString();
-      document.getElementById('seatNum').innerText = seatNum.toString();
+      document.getElementById('employeeId').innerText = employeeId?.toString() || '';
+      document.getElementById('seatNum').innerText = seatNum?.toString() || '';
 
       // Position the seat marker.
       const position = seatMarkerPositions[seatNum - 1];
       const markerEl = document.getElementById('seatMarker');
-      markerEl.style.left = position.x;
-      markerEl.style.top = position.y;
+      // markerEl.style.left = position.x;
+      // markerEl.style.top = position.y;
 
       // Send an image of this page to the parent window so that it can be
       // used as a texture on the virtual monitor screen in the scene.
